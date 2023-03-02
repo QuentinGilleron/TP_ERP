@@ -1,16 +1,32 @@
+<ol *ngFor="let fournisseur of fournisseurs">
+  <li>
+    <button class="mon_bouton" type="button" (click)="setFournisseur(fournisseur.id)">
+      {{fournisseur.name}}
+    </button>
+  </li>
+</ol>
+
+<h3>Produits</h3>
+
 <div *ngFor="let product of products">
 
   <h3>
     <a
       [title]="product.name + ' details'"
-      [routerLink]="['/products', product.id]">
+      [routerLink]="['/products', product.id]"
+      >
       {{ product.name }}
     </a>
   </h3>
 
+  <img src={{product.image}} width="90">
+
   <p *ngIf="product.description">
     Description: {{ product.description }}
   </p>
+
+  
+ 
 
   <button type="button" (click)="share()">
     Share
